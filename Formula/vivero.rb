@@ -4,22 +4,31 @@
 class Vivero < Formula
   desc "Local-first preview and QA nursery for coding agents"
   homepage "https://github.com/gianfrancopiana/vivero"
-  url "https://github.com/gianfrancopiana/vivero/archive/e6e819f75169bf4d095b16f866d466a8b63646ad.tar.gz"
-  version "0.0.0-20260521-e6e819f"
-  sha256 "5dfc7d1281a8131fb16244fafdf81d1272fda2edf5b792c712934bd78b500ac0"
+  version "0.1.0"
   license "MIT"
-  head "https://github.com/gianfrancopiana/vivero.git", branch: "main"
 
-  depends_on "go" => :build
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.1.0/vivero_darwin_arm64.tar.gz"
+      sha256 "21a454f1f31d60fdd09b58b4b9c7cc200b2f25d1f5648fa774a59cf01fbe54fc"
+    else
+      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.1.0/vivero_darwin_amd64.tar.gz"
+      sha256 "4f04cb0886f516d7353f65f8c4f6f5ae3412a514cacb618f88f046cbbcd6bd4a"
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.arm?
+      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.1.0/vivero_linux_arm64.tar.gz"
+      sha256 "b0ae81556f6b9a903afd7a8b4c7a896f75b7d74ed9f73f61f953b236105dbacf"
+    else
+      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.1.0/vivero_linux_amd64.tar.gz"
+      sha256 "860fff054ff8ba7b839c5687f50dd3c58b3499099f8603a477fd187be416b644"
+    end
+  end
 
   def install
-    ldflags = %W[
-      -s -w
-      -X github.com/gianfrancopiana/vivero/internal/vivero.Version=#{version}
-      -X github.com/gianfrancopiana/vivero/internal/vivero.Commit=e6e819f
-      -X github.com/gianfrancopiana/vivero/internal/vivero.BuildDate=2026-05-21T01:14:01Z
-    ]
-    system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"vivero", "./cmd/vivero"
+    bin.install "vivero"
   end
 
   test do
