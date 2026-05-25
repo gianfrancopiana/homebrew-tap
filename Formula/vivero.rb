@@ -4,26 +4,26 @@
 class Vivero < Formula
   desc "Local-first preview and QA nursery for coding agents"
   homepage "https://github.com/gianfrancopiana/vivero"
-  version "0.5.1"
+  version "0.5.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.5.1/vivero_darwin_arm64.tar.gz"
-      sha256 "0739c5c535872cf7cbdd8782fb1327197230c8cb156b3ba61d02c7ace4bec296"
+      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.5.2/vivero_darwin_arm64.tar.gz"
+      sha256 "6d0d742eb3d4e85e9943a21e2a32b086e0265b3c459bb6857c5400094cf208d3"
     else
-      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.5.1/vivero_darwin_amd64.tar.gz"
-      sha256 "34067693912ebcf34f4320686ddad00cc8949b16a7f2beceae06324aa3608c0f"
+      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.5.2/vivero_darwin_amd64.tar.gz"
+      sha256 "66ba16952893976974e49c588bc6f5ba11e5d697fbe3626d004d92cbc97c3db7"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.5.1/vivero_linux_arm64.tar.gz"
-      sha256 "782cd1c8d07c468ae7db0a9e0884a7f53695cac2417896e79c46ca2ecf42ca58"
+      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.5.2/vivero_linux_arm64.tar.gz"
+      sha256 "4623f113fc16c144e79eb8925a9bb3748d2d2703e8f0dced97e898fc06d6ceeb"
     else
-      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.5.1/vivero_linux_amd64.tar.gz"
-      sha256 "3d9226c01165318ab730e324975bcf71ab0c49785710085d9e04d4ab8c21633e"
+      url "https://github.com/gianfrancopiana/vivero/releases/download/v0.5.2/vivero_linux_amd64.tar.gz"
+      sha256 "33b0837e65b5cea2041d51fcb0862a3caa49071909eb9bc1fa1b98471491cdc3"
     end
   end
 
